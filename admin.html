@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Login</title>
+
+	<style>
+		body {
+			 background-image: linear-gradient(#000,#2C195D);
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			text-align: center;
+			margin-top: 50px;
+		}
+		form {
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+			margin: 20px auto;
+			max-width: 400px;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		input[type="text"], input[type="password"] {
+			padding: 10px;
+			margin-bottom: 20px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+			width: 100%;
+		}
+		input[type="submit"] {
+			background-color: #4CAF50;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		input[type="submit"]:hover {
+			background-color: #3e8e41;
+		}
+		.error {
+			color: red;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Admin Login</h1>
+	<form onsubmit="return validateForm()">
+		<label for="username">Username</label>
+		<input type="text" id="username" name="username" required>
+		<label for="password">Password</label>
+		<input type="password" id="password" name="password" required>
+		<input type="submit" value="Login">
+    <a href="dashboard.html" class="button">Click Here</a>
+		<div id="error"></div>
+	</form>
+
+	<script>
+		function validateForm() {
+			var username = document.getElementById("username").value;
+			var password = document.getElementById("password").value;
+			var error = document.getElementById("error");
+
+			if (username == "" || password == "") {
+				error.innerHTML = "Please fill out all fields";
+				return false;
+			} else if (username != "admin" || password != "password123") {
+				error.innerHTML = "Invalid username or password";
+				return false;
+			} else {
+				error.innerHTML = "";
+				return true;
+			}
+		}
+	</script>
+</body>
+</html>

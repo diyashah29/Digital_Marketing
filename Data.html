@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>
+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<link rel="stylesheet" href="css\style3.css">
+</head>
+<body ng-app="AngularfilterApp">
+<h2>Admin Area</h2>
+<div ng-controller="filterctrl">
+<table>
+<tr>
+<th>
+ID
+</th>
+<th>
+<input ng-model="searchtxt.id" type="text" placeholder="Enter Only ID">
+</th>
+<th>
+Name
+</th>
+<th>
+<input ng-model="searchtxt.name" type="text" placeholder="Enter Only Name">
+</th>
+</tr>
+<th>ID</th>
+<th>Name</th>
+<th>Age</th>
+<th>Email</th>
+</tr>
+<tr ng-repeat="user in users | filter : searchtxt">
+<td>{{user.id}}</td>
+<td>{{user.name}}</td>
+<td>{{user.age}}</td>
+<td>{{user.email}}</td>
+</tr>
+</table>
+</div>
+
+<script>
+var app = angular.module("AngularfilterApp", []);
+app.controller("filterctrl", function ($scope) {
+$scope.users = [{
+id:"001",
+name: "Madhav Sai",
+age: 11,
+email:"ms@gmail.com"
+}, {
+id:"002",
+name: "Suresh Dasari",
+age: 29,
+email:"SD@gmail.com"
+}, {
+id:"003",
+name: "Rohini Alavala",
+age: 29,
+email:"RA@gmail.com"
+}, {
+id:"004",
+name: "Praveen Kumar",
+age: 24,
+email:"PK@gmail.com"
+}];
+});
+</script>
+</body>
+</html>
